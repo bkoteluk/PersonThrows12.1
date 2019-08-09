@@ -32,8 +32,5 @@ public class PersonTest {
         } finally {
             sc.close();
         }
-
-
-
     }
 }
