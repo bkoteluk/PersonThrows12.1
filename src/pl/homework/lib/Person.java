@@ -3,16 +3,15 @@ package pl.homework.lib;
 import pl.homework.excep.IncorrectAgeException;
 import pl.homework.excep.NameUndefinedException;
 
+import java.util.InputMismatchException;
+
 public class Person {
     private String firstName;
     private String lastName;
     private int age;
     private String pesel;
 
-    public Person() {
-    }
-
-    public Person(String firstName, String lastName, int age, String pesel) throws NameUndefinedException, IncorrectAgeException {
+    public Person(String firstName, String lastName, int age, String pesel) throws NameUndefinedException, IncorrectAgeException, InputMismatchException {
         if (firstName == null || firstName.length() < 2 || lastName == null || lastName.length() < 2) {
             throw new NameUndefinedException();
         }
