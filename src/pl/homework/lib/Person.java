@@ -3,24 +3,16 @@ package pl.homework.lib;
 import pl.homework.excep.IncorrectAgeException;
 import pl.homework.excep.NameUndefinedException;
 
-import java.util.InputMismatchException;
-
 public class Person {
     private String firstName;
     private String lastName;
     private int age;
     private String pesel;
 
-    public Person(String firstName, String lastName, int age, String pesel) throws NameUndefinedException, IncorrectAgeException, InputMismatchException {
-        if (firstName == null || firstName.length() < 2 || lastName == null || lastName.length() < 2) {
-            throw new NameUndefinedException();
-        }
-        if ( age < 1) {
-            throw new IncorrectAgeException();
-        }
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
+    public Person(String firstName, String lastName, int age, String pesel) throws NameUndefinedException, IncorrectAgeException {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setAge(age);
         this.pesel = pesel;
     }
 
@@ -30,7 +22,7 @@ public class Person {
 
     public void setFirstName(String firstName) throws NameUndefinedException {
         if (firstName == null || firstName.length() < 2) {
-            throw new NameUndefinedException();
+            throw new NameUndefinedException("Podano błędne lub niepełne dane w imieniu osoby");
         }
         this.firstName = firstName;
     }
@@ -41,7 +33,7 @@ public class Person {
 
     public void setLastName(String lastName) throws NameUndefinedException {
         if (lastName == null || lastName.length() < 2) {
-            throw new NameUndefinedException();
+            throw new NameUndefinedException("Podano błędne lub niepełne dane w nazwisku osoby");
         }
         this.lastName = lastName;
     }
