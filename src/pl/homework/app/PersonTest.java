@@ -9,26 +9,23 @@ import java.util.Scanner;
 
 public class PersonTest {
 
-    public static Person realPersonalData(Scanner sc) throws NameUndefinedException, IncorrectAgeException, InputMismatchException {
-        String firstName;
-        String lastName;
-        int age;
-        String pesel;
+    public static Person realPersonalData(Scanner sc) throws NameUndefinedException, IncorrectAgeException {
 
         System.out.print("Podaj imię :");
-        firstName = sc.nextLine();
+        String firstName = sc.nextLine();
         System.out.print("Podaj nazwisko :");
-        lastName = sc.nextLine();
+        String lastName = sc.nextLine();
         System.out.print("Podaj wiek osoby : ");
         try {
-            age = sc.nextInt();
+            int age = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Podaj PESEL : ");
+            String pesel = sc.nextLine();
+            return new Person(firstName, lastName, age, pesel);
         } catch (InputMismatchException ex) {
             throw ex;
         }
-        sc.nextLine();
-        System.out.print("Podaj PESEL : ");
-        pesel = sc.nextLine();
-        return new Person(firstName, lastName, age, pesel);
+
     }
 
     public static void main(String[] args) {
