@@ -32,7 +32,6 @@ public class PersonTest {
             System.out.println(ex.getMessage());
         } catch (InputMismatchException ex) {
             System.out.println("Niezgodna z typem wartość parametru age");
-        } finally {
         }
     }
 }
